@@ -24,7 +24,7 @@ unsigned long sigma(unsigned long n) {
 		for (unsigned long i = 1; i <= n; ++i)
 			sum += i;
 
-		unsigned long fast = (n * (n+1))/2
+		unsigned long fast = (n * (n+1))/2;
 		if (sum != fast) {
 			std::string message = "Postcondition sum == (n(n+1))/2 violated: sum: " + std::to_string(fast) + " (Loc: " + __FILE__ + ", " + XSTR(__LINE__) + ')';
 			throw std::runtime_error(message);
