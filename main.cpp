@@ -17,7 +17,7 @@ unsigned long sigma(unsigned long n) {
 
 	try {
 		if (n == 0) {
-			std::string message = "Precondition n>=1 violated; invalid value for argument n: " + std::to_string(n) + "Loc: " + __FILE__ + ", " + XSTR(__LINE__) + ')';
+			std::string message = "Precondition n>=1 violated; invalid value for argument n: " + std::to_string(n) + " (Loc: " + __FILE__ + ", " + XSTR(__LINE__) + ')';
 			throw std::runtime_error(message);
 		}
 
@@ -39,5 +39,9 @@ unsigned long sigma(unsigned long n) {
 }
 
 int main() {
+	unsigned long sum = sigma(5);
+	printf("sigma(5) = %lu\n", sum);
+	sum = sigma(0);
+	printf("sigma(0) = %lu\n", sum);
 	return 0;
 }
