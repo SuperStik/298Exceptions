@@ -14,6 +14,7 @@
 //         specified as an argument or 0 if an error occurred.
 unsigned long sigma(unsigned long n) {
 	unsigned long sum = 0;
+
 	try {
 		if (n == 0) {
 			std::string message = "Precondition n>=1 violated; invalid value for argument n: " + std::to_string(n) + "Loc: " + __FILE__ + ", " + XSTR(__LINE__) + ')';
@@ -28,7 +29,12 @@ unsigned long sigma(unsigned long n) {
 			std::string message = "Postcondition sum == (n(n+1))/2 violated: sum: " + std::to_string(fast) + " (Loc: " + __FILE__ + ", " + XSTR(__LINE__) + ')';
 			throw std::runtime_error(message);
 		}
+	} catch(std::runtime_error &e) {
+		printf("Exception: %s\n", e.what());
+		puts("Cannot compute sum, returning 0");
+		sum = 0;
 	}
+
 	return sum;
 }
 
